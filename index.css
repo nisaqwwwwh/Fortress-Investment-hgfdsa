@@ -1,0 +1,353 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global font size override - set to 13.50px for all devices */
+html {
+  font-size: 13.50px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1rem; /* This will now be 13.50px */
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+}
+
+:root {
+  --color-light: #ffffff;
+  --color-dark: #171717;
+}
+
+.accent-text {
+  @apply text-slate-600;
+}
+
+body {
+  font-family:
+    "Inter Variable",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+  color: var(--color-dark);
+  background: var(--color-light);
+}
+
+/* Full screen container for all devices */
+.full-screen {
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height */
+  width: 100vw;
+  max-width: 100%;
+}
+
+/* Safe area for mobile devices */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-pt {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-pl {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-pr {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Responsive container classes */
+.container-responsive {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    max-width: 640px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    max-width: 768px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-responsive {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-responsive {
+    max-width: 1536px;
+  }
+}
+
+/* Smooth scrolling for all scrollable elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(55, 65, 81, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.8);
+}
+
+/* only use this to update the style of the auth input fields. use a different class for all other input fields */
+.auth-input-field {
+  @apply w-full px-4 py-3 rounded-container bg-white border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-shadow shadow-sm hover:shadow;
+}
+
+/* only use this to update the style of the auth buttons. use the button class for all other buttons */
+.auth-button {
+  @apply w-full px-4 py-3 rounded bg-primary text-white font-semibold hover:bg-primary-hover transition-colors shadow-sm hover:shadow disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}
+
+/* Improved button hover effects */
+.btn-hover {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.btn-hover:hover {
+  @apply transform scale-105 shadow-lg;
+}
+
+.btn-hover:active {
+  @apply transform scale-95;
+}
+
+/* Better focus states for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-gray-900;
+}
+
+/* Smooth page transitions */
+.page-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Better mobile touch targets */
+@media (max-width: 768px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Responsive text sizes - all based on 13.50px base */
+.text-responsive-xs {
+  font-size: 0.75rem; /* 10.125px */
+}
+
+.text-responsive-sm {
+  font-size: 0.875rem; /* 11.8125px */
+}
+
+.text-responsive-base {
+  font-size: 1rem; /* 13.50px */
+}
+
+.text-responsive-lg {
+  font-size: 1.125rem; /* 15.1875px */
+}
+
+.text-responsive-xl {
+  font-size: 1.25rem; /* 16.875px */
+}
+
+.text-responsive-2xl {
+  font-size: 1.5rem; /* 20.25px */
+}
+
+.text-responsive-3xl {
+  font-size: 1.875rem; /* 25.3125px */
+}
+
+.text-responsive-4xl {
+  font-size: 2.25rem; /* 30.375px */
+}
+
+.text-responsive-5xl {
+  font-size: 3rem; /* 40.5px */
+}
+
+/* Consistent 13.50px font size across all devices and screen sizes */
+@media (max-width: 320px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 414px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+@media (min-width: 415px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+/* Tablet - maintain 13.50px */
+@media (min-width: 768px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+/* Desktop - maintain 13.50px */
+@media (min-width: 1024px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+/* Large desktop - maintain 13.50px */
+@media (min-width: 1920px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+/* Ultra-wide screen - maintain 13.50px */
+@media (min-width: 2560px) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+/* Landscape mobile orientation - maintain 13.50px */
+@media (max-height: 500px) and (orientation: landscape) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+/* High DPI displays - maintain 13.50px */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  html {
+    font-size: 13.50px;
+  }
+}
+
+/* Print styles */
+@media print {
+  html {
+    font-size: 12pt;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Accessibility - Respect user's font size preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-light: #171717;
+    --color-dark: #ffffff;
+  }
+}
+
+/* Reduced data mode */
+@media (prefers-reduced-data: reduce) {
+  * {
+    background-image: none !important;
+  }
+}
