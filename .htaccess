@@ -1,0 +1,23 @@
+RewriteEngine On
+RewriteBase /
+
+# Don't rewrite requests for index.html
+RewriteRule ^index\.html$ - [L]
+
+# If the requested file or directory does not exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect all other requests to index.html
+RewriteRule . /index.html [L]
+
+# Optional: Serve .gz files if they exist and the browser supports it
+<IfModule mod_mime.c>
+	AddEncoding gzip .gz
+	AddType text/javascript .js.gz
+	AddType text/css .css.gz
+</IfModule>
+
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
